@@ -1,0 +1,65 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-family: 'Franklin Gothic Medium';
+    text-transform: uppercase;
+    font-weight: 700;
+    color: maroon;
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+img {
+    margin-left: 220px;
+    margin-right: 120px;
+    display: block;
+}
+
+.container {
+    max-width: 200px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+ul {
+    background: #3399ff;
+    padding: 20px;
+}
+
+li {
+    background: #cce5ff;
+    margin: 5px;
+}
+
+header {
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 20px 10px;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: blueviolet;
+    color: white;
+    text-align: center;
+}
