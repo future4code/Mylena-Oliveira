@@ -4,7 +4,9 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+td,
+tr {
     font-family: 'Franklin Gothic Medium';
     text-transform: uppercase;
     font-weight: 700;
@@ -20,11 +22,9 @@ img {
     display: block;
 }
 
-.container {
-    max-width: 200px;
-    max-height: 150px;
-    width: auto;
-    height: auto;
+.container>img {
+    max-width: 20px;
+    max-height: 130px;
 }
 
 button {
@@ -62,4 +62,14 @@ footer {
     background-color: blueviolet;
     color: white;
     text-align: center;
+}
+
+form>p {
+    text-align: left;
+}
+
+table,
+th,
+td {
+    border-style: solid;
 }
