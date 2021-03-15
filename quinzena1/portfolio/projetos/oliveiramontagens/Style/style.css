@@ -1,0 +1,130 @@
+           html, body {
+                margin:0;
+                padding:0;
+				  max-width: 100%;
+                  height: auto;
+            }
+
+            html {
+				background:rgb(229,229,229);
+				  max-width: 100%;
+                 height: auto;
+            }
+
+            article, aside, section, header, footer, nav {
+                display:block;
+				  max-width: 100%;
+                  height: auto;
+
+
+            }
+
+            main {
+                width:960px;
+                margin:10px auto;
+                box-shadow:0 0 10px #999999;
+				font-family:Arial;
+			    font-size:16px;
+				max-width: 100%;
+				height: auto;
+				
+               
+            }
+
+            header {
+                width:960px;
+                height:110px;
+				font-family:Arial;
+			   
+			    font-size:7vw;
+
+                background-color:Gold;
+               	
+            }
+
+            nav {
+                width:960px;
+                height:40px;
+                background-color:rgb(153,153,153);
+                
+            }
+
+            nav a {
+                float:left;
+                font-family: Arial;
+                font-style:bolder;
+                color: rgb(255,255,255);
+                text-decoration: none;
+                padding:10px 30px;
+                margin-top: 5px;
+                font-size: 100%;
+                text-align: center;
+            }
+
+            .conteudo {
+                float:left;
+                width:640px;
+                height:350px;
+			    text-align:justify;
+
+                background-color:#DCDCDC;
+    max-width: 100%;
+  height: auto;
+                margin-top:10px;
+                margin-bottom:20px;
+            }
+            .conteudo h1, .conteudo h2 {
+                font-family:Georgia, "Times New Roman", Times, serif;
+                font-style:italic;
+				
+                color:rgb(153,102,51);
+                margin:10px 0;
+				 max-width: 100%;
+				height: auto;
+            }
+
+            .conteudo h1 { font-size:250% }
+            .conteudo h2 { font-size:200%; margin-top:20px }
+
+            .conteudo p {
+                font-family:Britannic Bold", Arial, Helvetica, sans-serif;
+           
+                line-height:200%;
+                margin:0;padding:0;
+            }
+
+            .conteudo img {
+                float:left;
+                margin-right:10px;
+				  height: auto;
+            }
+
+            .apoio {
+                float:right;
+                width:310px;
+                height:350px;
+                background-color:rgb(221,221,221);
+                margin-top:10px;
+				 height: auto;
+            }
+
+            footer {
+                clear:both;
+                width:960px;
+                height:60px;
+				font-family:Arial;
+                background-color:rgb(153,153,153);
+				text-align: center;
+				 max-width: 100%;
+                 height: auto;
+
+				
+            }
+			
+		img {  
+  max-width: 100%;
+  height: auto;
+  
+
+		}
+
