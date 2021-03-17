@@ -109,12 +109,13 @@ td button {
     border-radius: 5px;
     color: black;
     border: 1px solid black;
-    border-radius: 5px;
+    border-image: 30% round;
 }
 
-.container-do-search {
+.container-do-search img {
     margin-top: 20px;
     height: 100px;
+    background-color: turquoise;
 }
 
 #back-button {
