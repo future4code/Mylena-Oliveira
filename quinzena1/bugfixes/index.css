@@ -7,6 +7,7 @@
 * {
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 h2 {
@@ -51,12 +52,12 @@ div img {
 }
 
 .container {
-    height: 600px;
+    height: 350px;
     text-align: center;
 }
 
 .icone {
-    height: 15px;
+    height: 45px;
 }
 
 
@@ -72,7 +73,7 @@ div img {
 }
 
 #container-de-descricao>ol {
-    padding: 15px 0px;
+    padding: 95px 570px;
 }
 
 #container-para-comprar {
@@ -98,7 +99,7 @@ div:last-child {
 }
 
 table {
-    width: 60%;
+    width: 100%;
 }
 
 td button {
