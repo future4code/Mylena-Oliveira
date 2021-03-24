@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: mintcream;
+}
+
+body {
+    display: grid;
+    min-width: 50vw;
+    min-height: 50vh;
+}
+
+header {
+    display: flex;
+    background-color: brown;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0 20px;
+    align-items: center;
+    grid-column: 1 / span 2;
+}
+
+button,
+p {
+    color: black;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 50px;
+    row-gap: 30px;
+    column-gap: 30px;
+}
+
+.icone-e-texto {
+    display: flex;
+    align-items: center;
+}
+
+.icone {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.card-produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 2px 2px 5px darkgray;
+    flex-grow: 2 / 2;
+}
+
+video {
+    width: 100%;
+    height: 300px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: maroon;
+    height: 60px;
+    grid-column: 1 / -1;
+}
