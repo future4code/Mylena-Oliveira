@@ -1,0 +1,113 @@
+    body {
+        width: 100vw;
+        height: 100vh;
+        font-family: 'Segoe UI';
+    }
+    
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    
+    header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: end;
+        background-color: #3b4f66;
+        padding: 1em 1em;
+        width: 100vw;
+        align-items: center;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: scenter;
+        align-items: center;
+        margin: 8px 0;
+    }
+    /*Background que contém o logo e frase de efeito do site*/
+    
+    .foursafe-seguros {
+        width: 100vw;
+        padding: 1em 1em;
+        float: right;
+        color: snow;
+        background-color: #3b4f66;
+    }
+    /*Design no botão de todo o site*/
+    
+    button {
+        font-size: 1em;
+        background: #3498db;
+        color: #fff;
+        border: 0.25rem solid #3498db;
+        padding: 0.85em 0.75em;
+        margin: 1rem;
+        position: relative;
+        overflow: hidden;
+    }
+    /*Detalhamento dos serviços da 4FourSafeSeguros*/
+    
+    .all-browsers {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin: 0;
+        padding: 1em;
+        background-color: lightgray;
+    }
+    
+    .all-browsers>h1,
+    .browser {
+        margin: 1em;
+        padding: 1em;
+        text-align: center;
+    }
+    
+    .browser {
+        background: white;
+        grid-row: 1/span 1;
+    }
+    
+    .browser>h2,
+    p {
+        margin: 2px;
+        font-size: 1rem;
+    }
+    
+    img {
+        max-height: 24rem;
+        max-width: 16rem;
+    }
+    /*Página de contato, personalizada*/
+    
+    .apoio {
+        border: 5px solid #353b45;
+        border-width: 5px 5px;
+        background-color: grey;
+        text-align: center;
+        color: honeydew;
+    }
+    
+    footer {
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: #3b4f66;
+        color: snow;
+        height: 60px;
+    }
+    
+    .redes-sociais {
+        display: flex;
+    }
+    
+    @media screen and (min-width: 375px) and (max-width:667px) {
+        .all-browsers {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 1em;
+            background-color: lightgray;
+        }
+    }
