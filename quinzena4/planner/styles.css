@@ -1,0 +1,39 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Lucida Sans';
+    }
+    
+    header {
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1em 1em;
+        width: 100vw;
+    }
+    
+    section {
+        display: flex;
+        justify-content: space-evenly;
+        height: 90vh;
+    }
+    
+    .semana {
+        background-color: gray;
+        border: 1px dotted rgb(53, 53, 53);
+        width: 14%;
+        padding: 5px;
+    }
+    
+    @media screen and (min-width: 375px) and (max-width:667px) {
+        section {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 1em;
+            width: 320vh;
+            height: 60vh;
+        }
+    }
