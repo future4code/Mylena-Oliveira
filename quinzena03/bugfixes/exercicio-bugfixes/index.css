@@ -16,6 +16,13 @@ h2 {
     text-align: center;
 }
 
+button {
+    margin-top: 5px;
+    margin-bottom: 6px;
+    margin-left: 10px;
+    margin-right: 8px;
+}
+
 input {
     height: 20px;
     width: 500px;
@@ -113,7 +120,6 @@ td button {
     margin-top: 20px;
     height: 100px;
 }
-
 
 #back-button {
     background-color: white;
