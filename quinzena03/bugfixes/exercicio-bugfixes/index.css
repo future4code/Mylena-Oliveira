@@ -16,13 +16,6 @@ h2 {
     text-align: center;
 }
 
-button {
-    margin-top: 5px;
-    margin-bottom: 6px;
-    margin-left: 10px;
-    margin-right: 8px;
-}
-
 input {
     height: 20px;
     width: 500px;
@@ -84,6 +77,10 @@ div img {
 
 #container-para-comprar {
     background-color: #e7eb90;
+}
+
+#container-para-comprar>button {
+    padding: 100px 0;
 }
 
 #container-para-comprar>p {
