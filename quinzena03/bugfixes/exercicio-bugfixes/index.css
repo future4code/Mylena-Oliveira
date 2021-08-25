@@ -69,14 +69,20 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
-    padding: 128px 0px;
 }
 
 #container-de-descricao>p {
-    width: 10%;
+    min-width: 100px;
+    min-height: 120px;
+    margin: 25px 128px
 }
 
-#container-de-descricao>ol {}
+#container-de-descricao>ol {
+    background-color: #2274a5;
+    min-width: 100px;
+    min-height: 50px;
+    padding: 10px 300px;
+}
 
 #container-para-comprar {
     background-color: #e7eb90;
@@ -102,6 +108,7 @@ div:last-child {
 
 table {
     width: 60%;
+    font-family: sans-serif;
 }
 
 td button {
