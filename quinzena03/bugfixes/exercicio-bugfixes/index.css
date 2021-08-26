@@ -14,7 +14,6 @@ body {
     font-family: import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;800;900&display=swap);
 }
 
-;
 h2 {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
@@ -101,28 +100,33 @@ div img {
 }
 
 #container-para-comprar>p {
-    background-color: #c44f00;
-    /* padding: 100px 0; */
-    font-size: 60px;
+    margin-top: 30px;
+    margin-bottom: 45px;
+    color: #c44f00;
+    font-size: 45px;
 }
 
+
+/* padding: 100px 0; */
+
+font-size: 60px;
+
+}
 
 /**
   *
   *  ESTILOS COMPRAR 
   *
   **/
-
 div:nth-child(2),
 div:last-child {
     text-align: center;
 }
-
 table {
     width: 60%;
     font-family: sans-serif;
+    margin-left: 256px;
 }
-
 td button {
     background-color: #fadf63;
     width: 150px;
@@ -130,13 +134,12 @@ td button {
     border-radius: 5px;
     color: black;
 }
-
 .container-do-search {
     margin-top: 10px;
     height: 100px;
     margin-bottom: 30px;
+    margin-left: 48vh;
 }
-
 #back-button {
     background-color: white;
     width: 100px;
@@ -145,8 +148,8 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    margin-left: 526px;
 }
-
 #back-button:hover {
     background-color: #635a3d
 }
