@@ -81,7 +81,6 @@ div img {
 #container-de-descricao>p {
     min-width: 100px;
     min-height: 120px;
-    margin: 25px 128px
 }
 
 #container-de-descricao>ol {
@@ -97,7 +96,7 @@ div img {
 
 #container-para-comprar>p {
     background-color: #c44f00;
-    padding: 100px 0;
+    /* padding: 100px 0; */
     font-size: 60px;
 }
 
@@ -127,8 +126,9 @@ td button {
 }
 
 .container-do-search {
-    margin-top: 20px;
+    margin-top: 10px;
     height: 100px;
+    margin-bottom: 30px;
 }
 
 #back-button {
