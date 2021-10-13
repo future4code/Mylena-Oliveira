@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from "axios";
-import ListarUsuarios from './listarUsuarios'
+
 
 const url =
   "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users";
@@ -12,11 +12,9 @@ const headers = {
 };
 export default class CriarUsuario extends React.Component {
     state={
-        cadastro:[],
         nomeUsuario:"",
         emailUsuario:""
     };
-      
         
 
     onChangeNome = (event) => {
@@ -40,25 +38,10 @@ export default class CriarUsuario extends React.Component {
           this.setState({ emailUsuario: "" });
         alert('Cadastro realizado com sucesso')
         })
-        .catch((err) => console.log(err.message));
+        .catch((err) => alert(err.response.data.message));
       }
-      pegarCadastro = () => {
 
-        console.log("oi")
-        axios
-          .get('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/:id',
-            headers)
-          .then((res) => {
-            this.setState({ cadastro: res });
-          })
-          .catch((err) => console.log(err));
-      };   
-   
     render(){
-      const listaCadastros = this.state.cadastro
-      .map((cadastro) =>{
-          return <li key={this.state.id}>{this.state.cadastro.name}</li>;
-      });
         return(
             <div>
              <h1>Cadastro de usuários</h1>
@@ -73,9 +56,9 @@ export default class CriarUsuario extends React.Component {
             onChange={this.onChangeEmail}
             />
             <button onClick={this.onClickCriarUsuario}>Criar Usuário</button>
-            <ul>{listaCadastros}</ul>
-            <button onClick={this.pegarCadastro}>Listar usuários criados</button>
-
+            <div>
+            <button onClick={this.props.irParaLista}>Listar usuários criados</button>
+            </div>
             </div>
         );
     }
