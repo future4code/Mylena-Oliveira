@@ -46,7 +46,7 @@ export default class ListarPlaylist extends React.Component{
             console.log(err)
             alert("Ocorreu um erro tente mais tarde")
         })
-    
+      
     }
     deletarPlaylist = (id) => {
         const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`
@@ -63,25 +63,30 @@ export default class ListarPlaylist extends React.Component{
                 alert("Ocorreu um erro, tente novamente")
             })
     }
- 
+
 render(){
-    
+    <ListarMusica 
+    idPlaylist ={this.state.playlistCriadas}
+    />
     const listandoPlaylist = this.state.playlistCriadas
+    
     .map((playlist)=>{
         return (
+     
         <CardPlaylist 
             key={playlist.id}>
             <h2>Playlist: {playlist.name}</h2>
             <Botao onClick={() => this.deletarPlaylist(playlist.id)}>X
             </Botao>
-            {/* <button onClick={this.props.irParaListarMusica}>Visualizar Musicas</button> */}
+            <ListarMusica 
+            idPlaylist ={playlist.id}
+            />
             <AdicionarMusica 
             idPlaylist={playlist.id}
             />
-            <ListarMusica
-            idPlaylist={playlist.id}
-            />
+      
         </CardPlaylist>
+        
         )
     })
     return (

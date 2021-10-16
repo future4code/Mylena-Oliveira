@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import ListarMusica from './listarMusicas'
+import ListarMusica from './listarMusicas.js'
 
 
 export default class adicionarMusica extends React.Component{
@@ -46,6 +46,7 @@ export default class adicionarMusica extends React.Component{
         })
     }
 render(){   
+ 
     
     return (
         <div>
@@ -67,6 +68,8 @@ render(){
         value={this.state.url}
         onChange={this.onChangeUrl}
         />     
+
+      
         <button onClick={()=> this.adicionarMusicanaPlaylist(this.props.idPlaylist)}>Adicionar Música</button>
         <button onClick={this.props.irParaListarMusica}>Visualizar Musicas</button>
        
