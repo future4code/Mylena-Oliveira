@@ -9,7 +9,8 @@ margin:0px 0px 0px 0px;
 padding:0px 0px 0px 0px;
 width:100%;
 height:12vh;
-background-color: salmon;
+color:snow;
+background-color: #344e41;
 `
 
 export default class Header extends React.Component{

@@ -4,21 +4,27 @@ import styled from 'styled-components'
 import AdicionarMusica from './adicionarMusicas'
 import ListarMusica from './listarMusicas.js'
 
+const ContainerPlaylist =styled.div`
+display:flex;
+justify-content: start;
+background-color:#f58549;
+width: 60%;
 
+`
 const CardPlaylist = styled.div`
 display:flex;
 flex-direction: column;
-border:1px solid black;
-padding:2px 2px 2px 2px;
-background-color:#ffe5d9;
-width:100%;
+border-top:5px  black;
+justify-content: center;
+align-items: left;
+background-color: #f58549;
+border: 1px solid black;
 
 `
-
 const Botao = styled.button`
 width:36px;
-height: 36px;
-font-size:25px;
+height: 22px;
+font-size:15px;
 
 ` 
 export default class ListarPlaylist extends React.Component{
@@ -72,20 +78,22 @@ render(){
     
     .map((playlist)=>{
         return (
-     
         <CardPlaylist 
             key={playlist.id}>
             <h2>Playlist: {playlist.name}</h2>
             <Botao onClick={() => this.deletarPlaylist(playlist.id)}>X
             </Botao>
+            <ContainerPlaylist>
+
             <ListarMusica 
             idPlaylist ={playlist.id}
             />
             <AdicionarMusica 
             idPlaylist={playlist.id}
             />
-      
-        </CardPlaylist>
+         </ContainerPlaylist>
+
+               </CardPlaylist>
         
         )
     })

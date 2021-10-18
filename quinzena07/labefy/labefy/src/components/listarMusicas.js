@@ -5,11 +5,16 @@ import styled from 'styled-components'
 const CardMusicas = styled.div`
 display:flex;
 align-items: center;
-flex-direction: column;
-border:1px solid black;
+justify-content: center;
+flex-direction: row;
+border-radius:1px solid black;
 padding:2px 2px 2px 2px;
-color:green;
-width:100%;
+color:snow;
+background-color: #f58549;
+width:70%;
+
+border-bottom: 1px solid #ff4800;
+
 `
 export default class ListarMusica extends React.Component{
     state={
@@ -58,8 +63,8 @@ render(){
     const listarMusica = this.state.detalhesMusicas.map((musica)=>{
         return (
         <CardMusicas key={musica.id}>
-            <h1>{musica.name}</h1>   
-            <p>{musica.artist}</p>
+            <h3>{musica.name}</h3>   
+            <h4>{musica.artist}</h4>
             <audio controls src={musica.url}/>
             {this.listarMusica}
             <button onClick={() => this.deletarMusica(this.props.idPlaylist,musica.id)}>X</button>
@@ -69,7 +74,6 @@ render(){
     })
     return (
         <div>
-           <h2>Comece a escutar agora mesmo</h2>
            {listarMusica}
         </div>
 

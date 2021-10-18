@@ -1,7 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import ListarMusica from './listarMusicas.js'
+import ListarPlaylist from './listarPlaylist'
+
+const ContainerPrincipal = styled.div`
+display:flex;
+flex-direction:column
+`
 
 
 export default class adicionarMusica extends React.Component{
@@ -44,36 +49,37 @@ export default class adicionarMusica extends React.Component{
             alert("ERRO",err)
           
         })
+
     }
 render(){   
  
     
     return (
-        <div>
+        <ContainerPrincipal>
         <h3>Adicione músicas em sua playlist</h3>
-        
+        <p>Nome Música:</p>
         <input 
         placeholder='Nome Musica'
         value={this.state.nomeMusica}
         onChange={this.onChangeMusica}
 
         /> 
+       <p>Nome Artista:</p>
          <input 
         placeholder='Nome Artista'
         value={this.state.artista}
         onChange={this.onChangeArtista}
         /> 
+        <p>Url Música:</p>
+
          <input 
         placeholder='Url'
         value={this.state.url}
         onChange={this.onChangeUrl}
-        />     
-
-      
+        />           
         <button onClick={()=> this.adicionarMusicanaPlaylist(this.props.idPlaylist)}>Adicionar Música</button>
-        <button onClick={this.props.irParaListarMusica}>Visualizar Musicas</button>
-       
-        </div>
+        
+        </ContainerPrincipal>
     )
 }
 
