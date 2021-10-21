@@ -44,7 +44,7 @@ export const PokeCard = (props) =>  {
   }
 useEffect(()=>{
     pegaPokemon(props.pokemon)
-})
+},[pokemon])
     const pokemonConst = pokemon;
 
     return (
