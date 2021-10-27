@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import Resetar from "./componentes/resetar"
-import TelaMatches from "./componentes/telaMatches"
-import EscolherPerfis from "./componentes/escolherPerfis"
+import TelaMatches from "./componentes/TelaMatch"
+import EscolherPerfis from "./componentes/escolherPerfis/index.js"
 
 function App() {
   const [telaAtual,setTelaAtual ] = useState("escolherPerfis")
@@ -20,9 +20,11 @@ function App() {
     switch(telaAtual){
       case 'escolherPerfis':
         return <EscolherPerfis
+        irParaTelaMatches={irParaTelaMatches}
         />
       case 'telaMatches':
       return <TelaMatches    
+      irParaEscolherPerfil={irParaEscolherPerfis}
       />
 
       case 'resetar':
