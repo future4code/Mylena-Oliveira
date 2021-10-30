@@ -1,11 +1,14 @@
 
 import React, {useEffect,useState} from "react";
 
+
 import axios from 'axios'
 import {
     UserPhoto,
     CardPerfil,
-    Lista
+    Lista,
+    Botoes
+    
     
     
   } from "./styles";
@@ -35,21 +38,28 @@ const TelaMatches=(props)=> {
 
     const listarMatches = perfilSelecionado.map((match)=>{
         return (
-            <Lista>
         <CardPerfil 
             key={match.id}>
-                
-            {match.name}
-            <UserPhoto src={match.photo}></UserPhoto>
            
+            <UserPhoto src={match.photo}></UserPhoto>
+            {match.name}
+         
         </CardPerfil>
-        </Lista>
         
         )
     })
    return <div>
+     
+   <Lista>
+        <Botoes>
+        <button onClick={props.irParaEscolherPerfil}>Matchs</button>
+        <button onClick={props.irParaResetar}>Limpar</button>
+        </Botoes>
+       
         {listarMatches}
-    <button onClick={props.irParaEscolherPerfil}>Matchs</button>
+        
+        </Lista>
+
 
    </div>
 }

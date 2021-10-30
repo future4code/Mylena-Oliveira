@@ -2,30 +2,59 @@ import styled from "styled-components"
 
 export const CardPerfil = styled.div `
 
-    height: 70vh;
+    height: 560px;
   width: 24vw;
   padding: 0px 0px 50px 0px;
   box-shadow: 1px 1px 5px #9b2226;
   border-radius: 9px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  /* margin-top: 40px;
+  margin-bottom: 40px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   align-items: center;
+  margin:100px 220px 5px 520px;
+  @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    width: 65vw;
+  }
  
 `
 
+export const Botoes = styled.div `
+  height: 45px;
+  width: 345px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #9b2226;
+  color:snow; 
+
+`
+
+export const iconeMatch = styled.button`
+  max-height: 305px;
+    max-width: 5px;
+    background-color: green;
+  
+`
 export const UserPhoto = styled.img`
     height: 50vh;
     width: 24vh;
     margin-right: 10px;
     border-radius: 5%;
+    transition: all 0.3s ease;
+  overflow: hidden;
+  :hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 `
 
 export const PostPhoto = styled.img`
     width: 100%;
+    transition: all 0.3s ease;
+    overflow: hidden;
 `
 
 export const ContainerDescricao = styled.div`
@@ -71,17 +100,4 @@ export const ButtonEstilizaçãoRecusar = styled.button`
   }
 `
 
-export const ContainerHeader = styled.div `
-    height: 4vh;
-  width: 100%;
-  padding: 0px 0px 20px 0px;
-  background-color: #9b2226;
-  margin-top: 60px;
-  margin-bottom: 10px;
-  color:snow;  
-  display: flex;
-  justify-content: space-evenly;
-  justify-items: stretch;
-  text-align: center;
-  align-items: center;
-`
+

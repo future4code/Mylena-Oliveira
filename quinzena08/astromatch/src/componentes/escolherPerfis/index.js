@@ -1,5 +1,4 @@
 import React, {useEffect,useState} from "react";
-import Header from "./Header"
 
 import axios from 'axios'
 import {
@@ -8,7 +7,8 @@ import {
     ButtonSelecao,
     ButtonEstilizaçãoMatch,
     ButtonEstilizaçãoRecusar,
-    ContainerDescricao
+    ContainerDescricao,
+    Botoes
     
   } from "./styles";
 
@@ -63,13 +63,13 @@ const EscolherPerfis=(props)=> {
     const onClickRecusar=()=>{
         selecionarPerfil()
     }
-    console.log(perfilSelecionado)
    return <div>
-    
+      
     <CardPerfil>
-    <Header />
-    <button onClick={props.irParaTelaMatches}>Matchs</button>
-
+    <Botoes>
+    <button onClick={props.irParaTelaMatches}>
+    </button>
+    </Botoes>
     <UserPhoto src={selecaoPerfil.photo}></UserPhoto>
    <ContainerDescricao>
    <h2>{selecaoPerfil.name}, {selecaoPerfil.age}</h2> 
