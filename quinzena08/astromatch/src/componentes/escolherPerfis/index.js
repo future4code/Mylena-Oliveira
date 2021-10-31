@@ -8,7 +8,9 @@ import {
     ButtonEstilizaçãoMatch,
     ButtonEstilizaçãoRecusar,
     ContainerDescricao,
-    Botoes
+    Botoes,
+    ButtonEstilizaçãoMeusMatchs,
+ 
     
   } from "./styles";
 
@@ -67,8 +69,8 @@ const EscolherPerfis=(props)=> {
       
     <CardPerfil>
     <Botoes>
-    <button onClick={props.irParaTelaMatches}>
-    </button>
+        <h2>ASTROMATCH</h2>
+  
     </Botoes>
     <UserPhoto src={selecaoPerfil.photo}></UserPhoto>
    <ContainerDescricao>
@@ -78,6 +80,8 @@ const EscolherPerfis=(props)=> {
     <ButtonSelecao>
     <ButtonEstilizaçãoRecusar onClick={onClickRecusar}> Não Curti</ButtonEstilizaçãoRecusar>
     <ButtonEstilizaçãoMatch onClick={onClickMatch}>Dar Match</ButtonEstilizaçãoMatch>
+    <ButtonEstilizaçãoMeusMatchs onClick={props.irParaTelaMatches}> Meus Matchs</ButtonEstilizaçãoMeusMatchs>
+
     </ButtonSelecao>
     </CardPerfil>
 

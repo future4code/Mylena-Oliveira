@@ -1,16 +1,11 @@
-
 import React, {useEffect,useState} from "react";
-
 
 import axios from 'axios'
 import {
     UserPhoto,
-    CardPerfil,
+    ButtonEstilizacao,
     Lista,
     Botoes
-    
-    
-    
   } from "./styles";
 
 const url='https://us-central1-missao-newton.cloudfunctions.net/astroMatch/mylena-banu/matches'
@@ -38,13 +33,13 @@ const TelaMatches=(props)=> {
 
     const listarMatches = perfilSelecionado.map((match)=>{
         return (
-        <CardPerfil 
+        <div 
             key={match.id}>
            
             <UserPhoto src={match.photo}></UserPhoto>
             {match.name}
          
-        </CardPerfil>
+        </div>
         
         )
     })
@@ -52,17 +47,11 @@ const TelaMatches=(props)=> {
      
    <Lista>
         <Botoes>
-        <button onClick={props.irParaEscolherPerfil}>Matchs</button>
-        <button onClick={props.irParaResetar}>Limpar</button>
-        </Botoes>
-       
-        {listarMatches}
-        
+        <ButtonEstilizacao onClick={props.irParaEscolherPerfil}>Matchs</ButtonEstilizacao>
+        <ButtonEstilizacao onClick={props.irParaResetar}>Limpar</ButtonEstilizacao>
+        </Botoes>  
+        {listarMatches}  
         </Lista>
-
-
    </div>
 }
-
-
 export default TelaMatches;
