@@ -6,15 +6,24 @@ import {
     Link
   } from "react-router-dom";
 
+  import {
+    Background,
+    UserPhoto,
+    ButtonEstilizacao,
+    Container,
+    Botoes
+  } from "./styles";
+
+
 export const Home = ()=>{
 return (
-<div>   
-          <div>
-             <button><Link to="/AdminHome">Administrativo</Link></button>
-              <button><Link to="/ListTrips">Lista de Viagens</Link></button>
-          
-          </div>
-        </div>
+<Background>   
+          <Container>
+            
+             <ButtonEstilizacao><Link to="/Login">Administrativo</Link></ButtonEstilizacao>
+              <ButtonEstilizacao><Link to="/ListTrips">Lista de Viagens</Link></ButtonEstilizacao>
+          </Container>
+ </Background>
 
 );
 };
