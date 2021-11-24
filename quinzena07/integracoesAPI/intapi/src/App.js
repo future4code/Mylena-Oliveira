@@ -1,5 +1,4 @@
 import React from 'react'
-import './App.css';
 import ListarUsuarios from './components/listarUsuarios'
 import CriarUsuario from './components/criarUsuario';
 
@@ -7,29 +6,29 @@ export default class App extends React.Component {
   state={
   page:"createUser"
   }
-  changePage = () => {
-    if (this.state.page === "createUser") {
-      this.setState({ page: "usersList" });
-    } else if (this.state.page === "usersList") {
-      this.setState({ page: "createUser" });
-    }
-  };
+
+  irParaCadastro = ()=>{
+    this.setState({page:"createUser"})
+  }
+
+  irParaLista = ()=>{
+    this.setState({page:"usersList"})
+  } 
 
   renderPage = () => {
     switch (this.state.page) {
       case "createUser":
-        return <CriarUsuario />;
+        return <CriarUsuario irParaLista={this.irParaLista} />;
       case "usersList":
-        return <ListarUsuarios />;
+        return <ListarUsuarios  irParaCadastro={this.irParaCadastro} />;
       default:
-        return <div></div>;
+        return <div>Página não encontrada</div>;
     }
   };
-  
+
   render() {
   return (
     <div>
-      <button onClick={this.changePage}>Listar usuários criados</button>
       {this.renderPage()}
     </div>
   );
