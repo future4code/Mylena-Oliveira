@@ -2,17 +2,18 @@ import React, {useState} from "react";
 import {useHistory} from "react-router-dom"
 import { BASE_URL } from "../constants/base_url";
 import useRequestData from "../Reutilizavel/useRequestData";
-import useRequestPost from "../Reutilizavel/useRequestPost";
-
-
+import axios from 'axios'
 
 export const ApplicationForm = ()=>{
 
-    const [form, setForm]= useState({name:"", age:0, applicationText:"", profession:"", country:""})
+    const [name, setName]= useState("")
+    const [age, setAge] = useState(0)
+    const [applicationText, setApplicationText] = useState("")
+    const [profession, setProfession] = useState("")
+    const [country, setCountry] = useState("")   
 
-    const [nameTrips] = useRequestData(`${BASE_URL}/mylena-banu/trips`)
+    const [nameTrips] = useRequestData(`${BASE_URL}/mylena-savala-banu/trips`)
 
-    // const [sendForm] = useRequestPost(`${BASE_URL}/mylena-banu/trips/${nameTrips.id}/apply`, form.id,form.name,form.age,form.applicationText,form.profession,form.country,form.local)
 
     const optionsArray = nameTrips.map((item)=>{
         return(
@@ -21,10 +22,24 @@ export const ApplicationForm = ()=>{
     })
     
 
-    const onChange =(event) =>{
-        const{name, value}=event.target
-        setForm({...form,[name]:value})
+    const onChangeName = (e) => {
+        setName(e.target.value);
     }
+    
+    const onChangeAge= (e) => {
+        setAge(e.target.value);
+    }
+    const onChangeApplicationText = (e) => {
+        setApplicationText(e.target.value);
+    }
+    
+    const onChangeProfession= (e) => {
+        setProfession(e.target.value);
+    }
+    const onChangeCountry= (e) => {
+        setCountry(e.target.value);
+    }
+
 
     const history = useHistory()
 
@@ -33,77 +48,77 @@ export const ApplicationForm = ()=>{
     }
     const Submit = (event)=>{
       event.preventDefault()
-    //   const body = {
-    //     name,
-    //     age,
-    //     applicationText,
-    //     profession,
-    //     country
-    //     }
-    //     axios.post(`${BASE_URL}/mylena-banu/trips/${nameTrips.id}/apply`,body,{
-    //         headers:{
-    //             Authorization:"mylena-banu"
-    //         }
-    //     }).then((res)=>{
-    //         alert("Formulário enviado com sucesso",res)
- 
+      const body = {
+      name,
+        age,
+        applicationText,
+        profession,
+        country
+        
+        }
+        axios.post(`${BASE_URL}/mylena-banu/trips/${nameTrips.id}/apply`,body,{
+            headers:{
+                Authorization:"mylena-savala-banu"
+            }
+        }).then((res)=>{
+            alert("Formulário enviado com sucesso",res)
           
-    //     })
-    //     .catch((err)=>{
-    //         console.log(err)
+        })
+        .catch((err)=>{
+            console.log(err)
           
-    //     })
+        })
 }
  
 return (
 <div>
     <h1>Inscreva-se para uma viagem! Garanta sua vaga</h1>
   
-    <form onSubmit={Submit}>
-    <select
-     value={form.id}
-     >
+    <select>
          {optionsArray}
     </select>
 
-
+    <h4>Nome:</h4>
  <input 
  name="name"
  placeholder="Nome: "
- value={form.name}
- onChange={onChange}
- required/>
-
+ value={name}
+ onChange={onChangeName}
+/>
+<h4>Idade: </h4>
 <input 
  name="age"
- value={form.age}
+ value={age}
  placeholder="Idade: "
- onChange={onChange}
- required/>
- 
+ onChange={onChangeAge}
+/>
+ <h4>Texto de Candidatura: </h4>
 <input 
  name="applicationText"
- value={form.applicationText}
+ value={applicationText}
  placeholder="Texto de Candidatura: "
- onChange={onChange}
- required/>
- 
+ onChange={onChangeApplicationText}
+/>
+<h4>Profissão: </h4>
+
 <input 
 name="profession"
-value={form.profession}
+value={profession}
  placeholder="Profissão: "
- onChange={onChange}
- required/>
+ onChange={onChangeProfession}
+ />
+
+<h4>País: </h4>
 
 <input 
  name="country"
- value={form.country}
+ value={country}
  placeholder="Pais: "
- onChange={onChange}
- required/>
+ onChange={onChangeCountry}
+/>
 <button onClick={goBack}>Voltar</button>
-<button>Enviar Formulário</button>
-</form>
+<button onClick={Submit}>Enviar Formulário</button>
+
 </div>
 
 );

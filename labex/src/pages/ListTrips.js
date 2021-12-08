@@ -1,13 +1,19 @@
-import {useHistory,useEffect} from "react-router-dom"
+import {useHistory} from "react-router-dom"
 import { BASE_URL } from "../constants/base_url";
 import useRequestData from "../Reutilizavel/useRequestData";
-
-
+import {
+    Background,
+    ButtonEstilizacao,
+    ContainerListTrip,
+    ContainerBotoes,
+    ListTrip,
+    DivTrip
+  } from "./styles";
 
 export const ListTrips = ()=>{
 
  
-  const [listTripsUniversal] = useRequestData(`${BASE_URL}/mylena-banu/trips`)
+  const [listTripsUniversal] = useRequestData(`${BASE_URL}/mylena-savala-banu/trips`)
 
     
     const history = useHistory()
@@ -23,29 +29,32 @@ export const ListTrips = ()=>{
     const AllListTrips = listTripsUniversal
     .map((trip)=>{
         return (
-        <div 
+            <ListTrip
             key={trip.id}> 
-            <h3>{trip.name}</h3>
-            <p>{trip.description}</p>
-            <p>{trip.date}</p>
-            <p>{trip.durationInDays}</p>
-            <p>{trip.planet}</p>
-        </div>
+            <h4>{trip.name}</h4>
+            <h4>{trip.description}</h4>
+            <p><strong>Data:</strong>{trip.date}</p>
+            <p><strong>Duração em dias:</strong>{trip.durationInDays}</p>
+            <p><strong>Planeta:</strong>{trip.planet}</p>
+            </ListTrip>
         )
     })
 
 return (
-<div>
 
-<button onClick={goBack}>Voltar</button>
-<button onClick={goToApplication}>Inscreva-se </button>
+<Background>   
+          <ContainerListTrip>
+            <h1>Viagens Disponiveis</h1>
+            <ContainerBotoes>
+             <ButtonEstilizacao onClick={goBack}>Voltar</ButtonEstilizacao>
+              <ButtonEstilizacao onClick={goToApplication}>inscreva-se</ButtonEstilizacao>
+              </ContainerBotoes>
+              <DivTrip>
+              {AllListTrips}
+              </DivTrip>
+          </ContainerListTrip>
+ </Background >
 
-<div>
-<h2>Lista de Viagens</h2>
- {AllListTrips}
-
-</div>
-</div>
 
 );
 };

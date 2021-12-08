@@ -19,3 +19,27 @@ export const login = async ({ email, password }) => {
         error
     }
 }
+
+
+export const getTripDetails = async (token, id) => {
+    
+    let error;
+    let response;
+
+    try {
+        response = await axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/mylena-savala-banu/trip/${id}`,
+            {
+                headers: {
+                    auth: token
+                }
+            }
+        );
+    } catch (e) {
+        error = e.response;
+    }
+
+    return {
+        response,
+        error
+    }
+}

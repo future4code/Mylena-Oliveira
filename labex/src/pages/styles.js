@@ -2,12 +2,13 @@ import styled from "styled-components"
 
 export const Background = styled.div `
 background: url("https://eskipaper.com/images/star-wallpaper-5.jpg");
-    height: 680px;
+    height: 600px;
     width: 100%;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display:flex;
+    justify-content:center;
+    align-items: center;
 `
 
 
@@ -49,12 +50,39 @@ export const Container = styled.div`
   height: 260px;
   width: 568px;
   display:flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: snow;
   box-shadow: 1px 1px 10px snow;
   padding:0px 0px 20px 00px;
+`
+export const ContainerListTrip = styled.div`
+  height: 40vw;
+  width: 86vw;
+  display:flex;
+  flex-direction: column;
+  background-color: snow;
+  box-shadow: 1px 1px 10px snow;
+  padding:0px 0px 20px 00px;
+`
 
+export const ListTrip = styled.div`
+  background-color: snow;
+  box-shadow: 1px 1px 10px blueviolet;
+
+`
+
+export const DivTrip = styled.div`
+ height: 232px;
+  width: 864px;
+  display:flex;
+  background-color: snow;
+  box-shadow: 1px 1px 10px blueviolet;
+`
+
+export const ContainerBotoes = styled.div`
+display:flex;
 `
 
 export const Botoes = styled.div `

@@ -3,8 +3,9 @@ import {ApplicationForm} from "../pages/ApplicationForm";
 import {ListTrips} from "../pages/ListTrips";
 import { AdminHome } from "../pages/AdminHome";
 import {Login} from "../pages/Login";
-
+import { TripDetails } from "../pages/TripDetails";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { CreateTrip } from "../pages/CreateTrip";
 
 
 export const Router = () => {
@@ -28,7 +29,12 @@ export const Router = () => {
         <Route exact path={"/ApplicationForm"}>
           <ApplicationForm />
         </Route>
-
+        <Route exact path={"/TripDetails"}>
+          <TripDetails />
+        </Route>
+        <Route exact path={"/CreateTrip"}>
+          <CreateTrip />
+        </Route>
 
       </Switch>
     </BrowserRouter>
