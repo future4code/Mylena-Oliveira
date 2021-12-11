@@ -1,10 +1,20 @@
 import React, {useState} from "react";
 import {useHistory} from "react-router-dom"
 import { BASE_URL } from "../constants/base_url";
-import useRequestData from "../Reutilizavel/useRequestData";
-import axios from 'axios'
+import axios from 'axios';
+import { useProtectedPage } from '../hooks/useProtectedPage'
+import {
+    Background,
+    ButtonEstilizacao,
+    ContainerForm,
+    ContainerBotoes,
+    DivInputForm
+  } from "./styles";
+  
 
 export const CreateTrip = ()=>{
+
+    useProtectedPage()
 
     const [name, setName]= useState("")
     const [planet, setPlanet] = useState("")
@@ -45,21 +55,36 @@ export const CreateTrip = ()=>{
         }
         axios.post(`${BASE_URL}/mylena-savala-banu/trips/`,body,{
             headers:{
-                Authorization:"mylena-savala-banu"
-            }
-        }).then((res)=>{
+                
+                Authorization: localStorage.getItem("token")
 
-            alert("Viagem inscrita com sucesso",res)
+            }
+        }).then((response)=>{
+            
+if(response.token) {
+    alert("Viagem inscrita com sucesso")
+
+} else {
+    alert(response.error.data.message);
+}
         })
         .catch((err)=>{
             console.log(err)
           
         })
 }
+
+
+
  
 return (
-<div>
-    <h1>Criar Nova Viagem!</h1>
+
+<Background>   
+          <ContainerForm>
+           
+          <h1>Criar Nova Viagem!</h1>        
+ <DivInputForm>
+   
 
     <h4>Nome da viagem:</h4>
  <input 
@@ -78,6 +103,7 @@ return (
 
 <input 
 name="date"
+type="date"
 value={date}
  onChange={onChangeDate}
  />
@@ -97,10 +123,24 @@ value={date}
  value={durationInDays}
  onChange={onChangeDurationInDays}
 />
-<button onClick={goBack}>Voltar</button>
-<button onClick={Submit}>Enviar Formulário</button>
 
-</div>
+<br/>
+      </DivInputForm>
+
+<ContainerBotoes>
+              <ButtonEstilizacao onClick={goBack}>Voltar</ButtonEstilizacao>
+              <ButtonEstilizacao onClick={Submit}>Enviar Formulário</ButtonEstilizacao>
+              </ContainerBotoes>
+          </ContainerForm>
+ 
+</Background>
 
 );
 };
+
+
+
+
+
+
+

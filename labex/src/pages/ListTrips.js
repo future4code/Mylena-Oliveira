@@ -15,7 +15,6 @@ export const ListTrips = ()=>{
  
   const [listTripsUniversal] = useRequestData(`${BASE_URL}/mylena-savala-banu/trips`)
 
-    
     const history = useHistory()
 
     const goToApplication = ()=>{
@@ -45,16 +44,21 @@ return (
 <Background>   
           <ContainerListTrip>
             <h1>Viagens Disponiveis</h1>
-            <ContainerBotoes>
-             <ButtonEstilizacao onClick={goBack}>Voltar</ButtonEstilizacao>
-              <ButtonEstilizacao onClick={goToApplication}>inscreva-se</ButtonEstilizacao>
-              </ContainerBotoes>
+            
               <DivTrip>
               {AllListTrips}
               </DivTrip>
-          </ContainerListTrip>
+        
+          <ContainerBotoes>
+             <ButtonEstilizacao onClick={goBack}>Voltar</ButtonEstilizacao>
+              <ButtonEstilizacao onClick={goToApplication}>inscreva-se</ButtonEstilizacao>
+              </ContainerBotoes>
+              </ContainerListTrip>
  </Background >
-
 
 );
 };
+
+
+
+

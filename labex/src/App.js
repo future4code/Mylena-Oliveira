@@ -1,6 +1,14 @@
 import { Router } from "./routes/Router";
+import GlobalState from "./context";
 
-export default function App() {
-  return <Router/>;
-};
+const App = () =>  {
+
+  return (
+    <GlobalState>
+        <Router />    
+    </GlobalState>
+  );
+}
+
+export default App;
 

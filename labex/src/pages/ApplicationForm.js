@@ -2,7 +2,15 @@ import React, {useState} from "react";
 import {useHistory} from "react-router-dom"
 import { BASE_URL } from "../constants/base_url";
 import useRequestData from "../Reutilizavel/useRequestData";
-import axios from 'axios'
+import axios from 'axios';
+import {
+    Background,
+    ButtonEstilizacao,
+    ContainerForm,
+    ContainerBotoes,
+    DivInputForm
+  } from "./styles";
+  
 
 export const ApplicationForm = ()=>{
 
@@ -71,10 +79,13 @@ export const ApplicationForm = ()=>{
 }
  
 return (
-<div>
-    <h1>Inscreva-se para uma viagem! Garanta sua vaga</h1>
-  
-    <select>
+
+<Background>   
+          <ContainerForm>
+           
+    <h1>Inscreva-se para uma viagem!<br/>Garanta sua vaga</h1>
+            <DivInputForm>
+            <select>
          {optionsArray}
     </select>
 
@@ -99,27 +110,32 @@ return (
  placeholder="Texto de Candidatura: "
  onChange={onChangeApplicationText}
 />
-<h4>Profissão: </h4>
 
+<h4>Profissão: </h4>
 <input 
 name="profession"
 value={profession}
  placeholder="Profissão: "
  onChange={onChangeProfession}
  />
-
 <h4>País: </h4>
-
 <input 
  name="country"
  value={country}
  placeholder="Pais: "
  onChange={onChangeCountry}
 />
-<button onClick={goBack}>Voltar</button>
-<button onClick={Submit}>Enviar Formulário</button>
-
-</div>
+<br/>
+      </DivInputForm>
+            <ContainerBotoes>
+              <ButtonEstilizacao onClick={goBack}>Voltar</ButtonEstilizacao>
+              <ButtonEstilizacao onClick={Submit}>Enviar Formulário</ButtonEstilizacao>
+              </ContainerBotoes>
+          </ContainerForm>
+ 
+</Background>
 
 );
 };
+
+

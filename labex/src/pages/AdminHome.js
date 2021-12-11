@@ -1,14 +1,19 @@
 import {useHistory} from "react-router-dom";
+import { useContext } from "react";
 import { BASE_URL } from "../constants/base_url";
-import useRequestData from "../Reutilizavel/useRequestData";
 import axios from 'axios'
 import {
     ListTrip,
   } from "./styles";
+import GlobalState from "../context";
+import { useProtectedPage } from '../hooks/useProtectedPage'
+
+
 
 export const AdminHome = ()=>{
-  const [listTrips] = useRequestData(`${BASE_URL}/mylena-savala-banu/trips`)
-      
+  useProtectedPage()
+  const listTrips  = useContext(GlobalState);
+
     const history = useHistory()
 
     const goToApplication = ()=>{
@@ -34,27 +39,28 @@ export const AdminHome = ()=>{
     })
 
     } 
-    const AllListTrips = listTrips
-    .map((trip)=>{
-        return (
-            <ListTrip
-            key={trip.id}> 
-            <h4>{trip.name}</h4>
-            <button onClick={goToApplication}>
-              Detalhes
-            </button>
+    // const AllListTrips = listTrips
+    // .map((trip)=>{
+    //     return (
+    //         <ListTrip
+    //         key={trip.id}> 
+    //         <h4>{trip.name}</h4>
+    //         <button onClick={goToApplication}>
+    //           Detalhes
+    //         </button>
   
-            <button onClick={()=>DeleteTrip(trip.id)} >Deletar</button>
-            </ListTrip>
-        )
-    })
-
+    //         <button onClick={()=>DeleteTrip(trip.id)} >Deletar</button>
+    //         </ListTrip>
+    //     )
+    // })
+console.log(listTrips)
 return (
 
 <div>
     <h1>Página Administrador</h1>
-    {AllListTrips}
-
+    {/* {AllListTrips} */}
+ 
+{listTrips}
 <button onClick={goToNewTrip}>Nova Viagem</button>
 </div>
 

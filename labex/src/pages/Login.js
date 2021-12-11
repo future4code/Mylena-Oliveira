@@ -1,6 +1,15 @@
 import {login} from "../services";
 import { useHistory } from 'react-router';
 import { useState } from "react";
+import {
+  Background,
+  ButtonEstilizacao,
+  Container,
+  ContainerBotoes,
+  DivInput
+} from "./styles";
+
+
 
 export const Login = ()=>{
 
@@ -31,13 +40,21 @@ const onClickLogin = async () => {
 }
 
 return (
-  <>
-      <h1>Login Page</h1>
-      <p>E-mail</p>
+<Background>   
+          <Container>
+
+            <h1>Página Login</h1>
+            <DivInput>
+            <p>E-mail: </p>
       <input value={email} onChange={onChangeEmail}/>
-      <p>Senha</p>
+      <p>Senha: </p>
       <input type="password" value={password} onChange={onChangePassword}/>
-      <button onClick={onClickLogin}>Login</button>
-  </>
+      </DivInput>
+            <ContainerBotoes>
+              <ButtonEstilizacao onClick={onClickLogin}>Fazer Login</ButtonEstilizacao>
+              </ContainerBotoes>
+          </Container>
+ </Background>
+ 
 )
 }
