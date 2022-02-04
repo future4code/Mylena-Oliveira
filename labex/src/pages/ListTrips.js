@@ -24,7 +24,6 @@ export const ListTrips = ()=>{
         history.goBack()
     }
 
-
     const AllListTrips = listTripsUniversal
     .map((trip)=>{
         return (

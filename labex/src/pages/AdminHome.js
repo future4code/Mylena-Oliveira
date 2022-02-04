@@ -2,17 +2,19 @@ import {useHistory} from "react-router-dom";
 import { useContext } from "react";
 import { BASE_URL } from "../constants/base_url";
 import axios from 'axios'
-import {
-    ListTrip,
-  } from "./styles";
-import GlobalState from "../context";
-import { useProtectedPage } from '../hooks/useProtectedPage'
+import {Button} from '@material-ui/core'
 
+import {
+  BackgroundAdmin,
+  ListTrip,
+} from "./styles";
+import { useProtectedPage } from '../hooks/useProtectedPage'
+import useRequestData from "../Reutilizavel/useRequestData";
 
 
 export const AdminHome = ()=>{
   useProtectedPage()
-  const listTrips  = useContext(GlobalState);
+  
 
     const history = useHistory()
 
@@ -22,50 +24,44 @@ export const AdminHome = ()=>{
     const goToNewTrip = ()=>{
       history.push("/CreateTrip")
   }
+  const goBack = ()=>{
+    history.goBack()
+}
 
-    const DeleteTrip =(id) =>{
-      const url = `${BASE_URL}/mylena-savala-banu/trips/${id}`
+  const [listTripsUniversal] = useRequestData(`${BASE_URL}/mylena-savala-banu/trips`)
 
-      axios.delete(url,{
-        headers:{
-            Authorization:"mylena-savala-banu"
-        }
-    }).then(()=>{
 
-    })
-    .catch((err)=>{
-        console.log(err)
-        alert("Ocorreu um erro tente mais tarde é aqui", err)
-    })
+  const AllListTrips = listTripsUniversal
+  .map((trip)=>{
+      return (
+          <ListTrip
+          key={trip.id}> 
+          <h4>{trip.name}</h4>
+          </ListTrip>
+      )
+  })
 
-    } 
-    // const AllListTrips = listTrips
-    // .map((trip)=>{
-    //     return (
-    //         <ListTrip
-    //         key={trip.id}> 
-    //         <h4>{trip.name}</h4>
-    //         <button onClick={goToApplication}>
-    //           Detalhes
-    //         </button>
-  
-    //         <button onClick={()=>DeleteTrip(trip.id)} >Deletar</button>
-    //         </ListTrip>
-    //     )
-    // })
-console.log(listTrips)
 return (
+  
+<BackgroundAdmin>   
+    <h1>Viagens em Aberto</h1> 
 
-<div>
-    <h1>Página Administrador</h1>
-    {/* {AllListTrips} */}
- 
-{listTrips}
-<button onClick={goToNewTrip}>Nova Viagem</button>
-</div>
+    <Button variant="outlined" href="#outlined-buttons"  onClick={goToNewTrip} >
+    Criar Viagem
+</Button>
+            <div button>
+            {AllListTrips}
+            </div>
+      
+</BackgroundAdmin >
 
 );
 };
+
+
+
+
+
 
 
 

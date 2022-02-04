@@ -8,46 +8,39 @@ import {
     ButtonEstilizacao,
     ContainerForm,
     ContainerBotoes,
-    DivInputForm
+    DivInputForm,
+    ContainerListTrip
   } from "./styles";
   
 
 export const ApplicationForm = ()=>{
 
-    const [name, setName]= useState("")
-    const [age, setAge] = useState(0)
-    const [applicationText, setApplicationText] = useState("")
-    const [profession, setProfession] = useState("")
-    const [country, setCountry] = useState("")   
+    const [form,setForm]=useState({
+        name:'',
+        age:0,
+        applicationText:'',
+        profession:'',
+        country:'',
+        trip:''    
+        
+
+    })
 
     const [nameTrips] = useRequestData(`${BASE_URL}/mylena-savala-banu/trips`)
 
-
-    const optionsArray = nameTrips.map((item)=>{
-        return(
-       <option >{item.name}</option>
-        )
-    })
+    // const optionsArray = nameTrips.map((item)=>{
+    //     return(
+    //    <option >{item.name}</option>
+    //     )
+    // })
     
 
-    const onChangeName = (e) => {
-        setName(e.target.value);
-    }
-    
-    const onChangeAge= (e) => {
-        setAge(e.target.value);
-    }
-    const onChangeApplicationText = (e) => {
-        setApplicationText(e.target.value);
-    }
-    
-    const onChangeProfession= (e) => {
-        setProfession(e.target.value);
-    }
-    const onChangeCountry= (e) => {
-        setCountry(e.target.value);
-    }
+    const onChangeInput = (e) => {
+        const newValue=(e.target.value);
+        const fieldName=e.target.name
 
+        setForm({...form, [fieldName]: newValue})
+    }
 
     const history = useHistory()
 
@@ -56,15 +49,15 @@ export const ApplicationForm = ()=>{
     }
     const Submit = (event)=>{
       event.preventDefault()
-      const body = {
-      name,
-        age,
-        applicationText,
-        profession,
-        country
-        
-        }
-        axios.post(`${BASE_URL}/mylena-banu/trips/${nameTrips.id}/apply`,body,{
+    //   const body = {
+    // //   form.name,
+    //     age,
+    //     applicationText,
+    //     profession,
+    //     country,
+    //     trip       
+    //     }
+        axios.post(`${BASE_URL}/mylena-savala-banu/trips/${nameTrips.id}/apply`,form,{
             headers:{
                 Authorization:"mylena-savala-banu"
             }
@@ -78,52 +71,66 @@ export const ApplicationForm = ()=>{
         })
 }
  
+const nameTripsSelect = nameTrips
+    .map((trip)=>{
+        return (
+            <div
+            key={trip.id}> 
+            <h4>{trip.name}</h4>
+            </div>
+        )
+    })
+
 return (
 
 <Background>   
-          <ContainerForm>
-           
+ <ContainerForm> 
     <h1>Inscreva-se para uma viagem!<br/>Garanta sua vaga</h1>
             <DivInputForm>
-            <select>
-         {optionsArray}
-    </select>
+
+            <h4>Viagens Disponiveis</h4>
+            <select 
+            onChange={onChangeInput}
+            >
+            {nameTripsSelect}
+        </select>
 
     <h4>Nome:</h4>
  <input 
- name="name"
+
  placeholder="Nome: "
- value={name}
- onChange={onChangeName}
+ name={'name'}
+ value={form['name']}
+ onChange={onChangeInput}
 />
 <h4>Idade: </h4>
 <input 
- name="age"
- value={age}
+ name={"age"}
+ value={form['age']}
  placeholder="Idade: "
- onChange={onChangeAge}
+ onChange={onChangeInput}
 />
  <h4>Texto de Candidatura: </h4>
 <input 
- name="applicationText"
- value={applicationText}
+ name={"applicationText"}
+ value={form['applicationText']}
  placeholder="Texto de Candidatura: "
- onChange={onChangeApplicationText}
+ onChange={onChangeInput}
 />
 
 <h4>Profissão: </h4>
 <input 
-name="profession"
-value={profession}
+name={"profession"}
+value={form['profession']}
  placeholder="Profissão: "
- onChange={onChangeProfession}
+ onChange={onChangeInput}
  />
 <h4>País: </h4>
 <input 
- name="country"
- value={country}
+ name={"country"}
+ value={form['country']}
  placeholder="Pais: "
- onChange={onChangeCountry}
+ onChange={onChangeInput}
 />
 <br/>
       </DivInputForm>

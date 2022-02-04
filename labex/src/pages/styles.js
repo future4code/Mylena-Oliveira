@@ -79,19 +79,30 @@ export const ContainerListTrip = styled.div`
   box-shadow: 1px 1px 10px snow;
   padding:0px 0px 20px 00px;
 `
-
+// export const ListTrip = styled.div`
+//   height: 50vh;
+//   width: 36vw;
+//   box-shadow: 1px 1px 10px blueviolet;
+//   border-radius: 9px;
+//   margin-left: 15px;
+//   margin-right: 15px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   transition: all 0.3s ease;
+//   overflow: hidden;
+//   @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+//     width: 65vw;
+//   }
+//   :hover {
+//     -webkit-transform: scale(1.1);
+//     -ms-transform: scale(1.1);
+//     transform: scale(1.1);
+//   }
+// `;
 
 export const ListTrip = styled.div`
-  height: 50vh;
-  width: 36vw;
-  box-shadow: 1px 1px 10px blueviolet;
-  border-radius: 9px;
-  margin-left: 15px;
-  margin-right: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   transition: all 0.3s ease;
   overflow: hidden;
   @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
@@ -101,16 +112,21 @@ export const ListTrip = styled.div`
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
+    background-color:grey;
   }
 `;
 
-
-
 export const DivTrip = styled.div`
 display:flex;
-
 `
-
+export const BackgroundAdmin = styled.div`
+  display:grid;
+  justify-content: center;
+  align-items: center; 
+  font-size:18px;
+  font-style:'Arial black';
+  background-color:##f3e5f5;
+`
 export const DivInput = styled.div`
   display:flex;
   font-size:16px;
@@ -124,7 +140,6 @@ export const DivInputForm = styled.div`
   font-style:'Arial black';
 
 `
-
 export const ContainerBotoes = styled.div`
 display:flex;
 margin-top:18px;
